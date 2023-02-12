@@ -119,20 +119,20 @@ def reverse_and_complement(sequence):
     'GCAU'
     """
     DNA_upper=sequence.upper()
-    reversed_strand = ""
-    length = len(DNA_upper)
-    for i in range(length):
-        character = DNA_upper[length - 1 - i]
-        if character == "A": reversed_strand = reversed_strand + "U"
-        elif character == "U": reversed_strand = reversed_strand + "A"
-        elif character == "G": reversed_strand = reversed_strand + "C"
-        elif character == "C": reversed_strand = reversed_strand + "G"
-    print("The input DNA strand is:", DNA_upper)
-    print("The reverse complement is:", reversed_strand)
-    rev_seq = ''
-    for base in reversed(seq):
-        rev_seq += complement_base(base)
-    return rev_seq
+    complementary_strand = ""
+    for base in DNA_upper:
+        if base == "A": complementary_strand += "U"
+
+        elif base == "U" : complementary_strand += "A"
+
+        elif base == "G" : complementary_strand += "C"
+
+        elif base == "C" : complementary_strand += "G"
+    print(complementary_strand)
+
+    DNA_upper_reversedcomp=complementary_strand[::-1]
+    return DNA_upper_reversedcomp
+
 
 def get_longest_peptide(rna_sequence, genetic_code):
     """Get the longest peptide encoded by an RNA sequence.
