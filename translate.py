@@ -39,7 +39,11 @@ def translate_sequence(rna_sequence, genetic_code):
            proteins_no_stop=protein_string.split('*',1)[0]
     return proteins_no_stop
 
-    
+# This is so close! At the moment it is failing a number of tests where it expects a blank string but gets an empty input. 
+# Try defining the variable you return (proteins_no_stop) as an empty string before you start your if loop
+# Your other issue is that when you do len(rna)%2==0, you are only getting proteins when the entire sequence is perfectly divisible by 0.
+# This will cause issues with sequences that have one or two straggler bases, and it will just not translate the entire sequence rather than stopping at a partial codon. 
+# Try using that if statement on your codons within the for loop (i.e. only get the protein if a codon is 3 bases long)
 
     
 def get_all_translations(rna_sequence, genetic_code):
