@@ -31,10 +31,13 @@ def translate_sequence(rna_sequence, genetic_code):
     """
     rna =rna_sequence.upper()
     protein_string = ""
-    
-    if len(rna)%3 ==0:
-       for i in range(0, len(rna), 3):
+    if len(rna) < 3:
+        return ''
+    else:
+        for i in range(0, len(rna), 3):
            codon= rna[i:i + 3]
+           if len(codon) <3:
+                break
            protein_string+= genetic_code[codon]
            proteins_no_stop=protein_string.split('*',1)[0]
     return proteins_no_stop
